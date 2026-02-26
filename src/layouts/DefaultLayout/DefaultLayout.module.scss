@@ -1,0 +1,15 @@
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  width: var(--default-layout-max-width);
+  margin: 0 auto;
+  display: flex;
+}
+
+.main {
+  flex: 1;
+
+}
+
