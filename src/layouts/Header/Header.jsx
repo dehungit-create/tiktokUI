@@ -9,7 +9,7 @@ import styles from './Header.module.scss'
 import images from '@/assets/images';
 import { Wrapper as PopperWrapper } from '@/components/Popper/Popper';
 import AccountItem from '@/components/AccountItem/AccountItem';
-
+import Button from '@/components/Button/Button';
 
 const cx = classNames.bind(styles)
 
@@ -57,7 +57,10 @@ function Header() {
           </div>
         </Tippy>
 
-        <div className={cx('actions')}></div>
+        <div className={cx('actions')}>
+          <Button text>Upload</Button>
+          <Button outline rounded>Register</Button>
+        </div>
       </div>
     </header>
    );
