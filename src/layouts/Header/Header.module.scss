@@ -99,4 +99,21 @@
   }
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+
+.more-button {
+  font-size: 2rem;
+  padding: 0 8px;
+  margin-left: 12px;
+  background-color: transparent;
+}
+
+//menu more
+.menu-items {
+  width: 224px;
+}
 

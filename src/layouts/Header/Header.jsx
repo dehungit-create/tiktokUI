@@ -8,10 +8,34 @@ import Tippy from '@tippyjs/react';
 import styles from './Header.module.scss'
 import images from '@/assets/images';
 import { Wrapper as PopperWrapper } from '@/components/Popper/Popper';
+import Menu from '@/components/Popper/Menu/Menu';
 import AccountItem from '@/components/AccountItem/AccountItem';
 import Button from '@/components/Button/Button';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
+import { faKeyboard } from '@fortawesome/free-regular-svg-icons';
 
 const cx = classNames.bind(styles)
+const MENU_ITEMS = [
+  {
+    id: 1,
+    icon: <FontAwesomeIcon icon={faGlobe} />,
+    content: 'English',
+  },
+  {
+    id: 2,
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    content: 'Feedback and help',
+    to: '/feedback'
+  },
+  {
+    id: 3,
+    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    content: 'Keyboard shortcuts',
+
+  }
+]
 
 function Header() {
   const [searchResult, setSearchResult] = useState([])
@@ -27,7 +51,7 @@ function Header() {
           visible={searchResult.length > 0}
           appendTo={document.body}
           content={
-            <div className={cx('search-result')}>
+            <div className={cx('search-result')} tabIndex="-1">
               <PopperWrapper>
                 <h4 className={cx('search-title')}>Accounts</h4>
                 <AccountItem/>
@@ -59,7 +83,13 @@ function Header() {
 
         <div className={cx('actions')}>
           <Button text>Upload</Button>
-          <Button outline rounded>Register</Button>
+          <Button primary>Register</Button>
+
+          <Menu data={MENU_ITEMS}>
+            <button className={cx('more-button')}>
+                <FontAwesomeIcon icon={faEllipsisVertical}/>
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
